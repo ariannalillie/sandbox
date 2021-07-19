@@ -1,4 +1,4 @@
-
+const sayHelloTo = require('./sayHelloTo');
 
 sayHelloTo("Buzz");
 
@@ -7,4 +7,4 @@ function giveMessageToMrsPotato(message) {
   console.log(`(Psst... ${message})`)
 }
 
-// this is a change 
+module.exports = giveMessageToMrsPotato;
