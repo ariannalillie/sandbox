@@ -28,19 +28,38 @@ class Person {
 /* ============================ Phase 2 ============================ */
 // Your code here
 class Student extends Person {
-  constructor(firstName, lastName, age, major, GPA) {
-    super(firstName, lastName, age);
+  constructor(firstName, lastName, major, GPA) {
+    super(firstName, lastName);
     this.major = major;
     this.GPA = GPA;
   }
-
+  static compareGPA(student1, student2) {
+    if (student1.GPA > student2.GPA) {
+      return `${student1.firstName} ${student1.lastName} has the higher GPA.`
+    }
+    return `${student2.firstName} ${student2.lastName} has the higher GPA.`
+  }
+  introduce() {
+    return `Hello. I am ${this.firstName} ${this.lastName}, and I study ${this.major}.`;
+  }
 
 }
 
 class Teacher extends Person {
-  constructor(firstName, lastName, age, subject) {
-    super(firstName, lastName, age);
+  constructor(firstName, lastName, subject, yearsOfExperience) {
+    super(firstName, lastName);
     this.subject = subject;
+    this.yearsOfExperience = yearsOfExperience;
+  }
+  static combinedYearsOfExperience(teachers) {
+    let sum = 0;
+    teachers.forEach(teacher => {
+      sum += teacher.yearsOfExperience;
+    })
+    return sum;
+  }
+  introduce() {
+    return `Hello. I am ${this.firstName} ${this.lastName}, and I have been teaching ${this.subject} for ${this.yearsOfExperience} years.`;
   }
 }
 
