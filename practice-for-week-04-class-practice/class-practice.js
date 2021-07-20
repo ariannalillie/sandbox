@@ -11,16 +11,12 @@ class Person {
   }
   static introducePeople(people) {
     if (!Array.isArray(people)) {
-      // throw new Error("introducePeople only takes an array as an argument.");
-      console.log("introducePeople only takes an array as an argument.");
-      return;
+      throw new Error ("introducePeople only takes an array as an argument.");
     }
 
     for (let person of people) {
       if (!(person instanceof Person))
-        // throw new Error("All items in array must be Person class instances.");
-        console.log("All items in array must be Person class instances.");
-        return;
+        throw new Error ("All items in array must be Person class instances.");
     }
 
     people.forEach((person) => person.introduce());
