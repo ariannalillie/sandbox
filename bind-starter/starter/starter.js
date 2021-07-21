@@ -16,9 +16,13 @@ const testEmployee = new Employee (
     'Cook'
 )
 
-setTimeout(() => {
-    testEmployee.sayName()
-}, 2000)
+// if set up like this, the return will be undefined because
+// the context of THIS is lost. Therefore, we can use bind() to
+// bind our method to our testEmployee so we do not lose context.
+setTimeout(testEmployee.sayName, 2000)
+
+// works using annonymous callback
+// setTimeout(() => testEmployee.sayName(), 2000)
 
 const sayNameBound = testEmployee.sayName.bind(testEmployee);
 const sayOccupationBound = testEmployee.sayOccupation.bind(testEmployee);
