@@ -1,6 +1,6 @@
 const chai = require("chai");
 const expect = chai.expect;
-const { isFive, isOdd, myRange } = require("../funcs");
+const { isFive, isOdd, myRange, isTwo, printArray } = require("../funcs");
 
 describe("isFive(num)", () => {
   it("should return true if the num is 5 otherwise false", () => {
@@ -94,5 +94,48 @@ describe("myRange(min, max, step)", () => {
       expect(actual2).to.eql(expected2);
       expect(actual3).to.eql(expected3);
     });
+  });
+});
+
+describe("isTwo(num)", () => {
+  it("should return true if the num is 2 otherwise false", () => {
+    const num1 = 2;
+
+    const actual1 = isTwo(num1); // should be true
+
+    expect(actual1).to.be.true;
+
+    const num2 = 3;
+    const num3 = 4;
+
+    const actual2 = isTwo(num2);
+    const actual3 = isTwo(num3);
+
+    expect(actual2).to.be.false;
+    expect(actual3).to.be.false;
+  });
+});
+
+describe("printArray(maybeArray)", () => {
+  it("should return an array if given an array", () => {
+    const test1 = ['cat', 'dog', 'sandwhich'];
+
+    const actual1 = printArray(test1);
+
+    expect(actual1).to.eql(['cat', 'dog', 'sandwhich'])
+  });
+
+  it("should return an empty array for falsy values", () => {
+    const actual1 = printArray();
+
+    expect(actual1).to.eql([]);
+  });
+
+  it("should returns an array with the given argument if it's not an array and not falsy", () => {
+    const test1 = 'cat';
+
+    const actual1 = printArray(test1);
+
+    expect(actual1).to.eql(['cat']);
   });
 });

@@ -22,5 +22,25 @@ function myRange(min, max, step = 1) {
   return newArr;
 }
 
+function isTwo(num) {
+  if (num === 2) return true;
+  return false;
+}
 
-module.exports = { isFive, isOdd, myRange };
+function printArray(array) {
+
+}
+
+function printArray(maybeArray) {
+  if (Array.isArray(maybeArray)) {
+    return(maybeArray)
+  } else if (!maybeArray) {
+    return []
+  } else {
+    return [maybeArray]
+  }
+}
+
+
+
+module.exports = { isFive, isOdd, myRange, isTwo, printArray };
