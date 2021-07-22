@@ -19,9 +19,26 @@ let res = sum(null);
 console.log(res);
 
 // 2.
-function sayName(name) {}
+function sayName(name) {
+  // if name isn't a string throw an error
+  if (!(typeof name === 'string')) {
+    throw new Error('Name must be a string')
+  }
+  console.log(name);
+}
 
-try {
-} catch (error) {}
 
 // 3.
+try {
+  // Runs correctly
+  sayName('lillie');
+  // Throws error
+  // sayName(45);
+} catch (error) {
+  console.log(error)
+}
+
+// 4.
+// Validation Error
+class ValidationError extends Error() {}
+  throw new ValidationError('Passwords fields must match!')
