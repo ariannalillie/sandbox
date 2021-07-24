@@ -139,3 +139,5 @@ describe("printArray(maybeArray)", () => {
     expect(actual1).to.eql(['cat']);
   });
 });
+
+//write new test
