@@ -1,18 +1,20 @@
+// NOTES: This.length returns the number of items in an array, but since arrays are 0 indexed,
+// array[array.length - 1] returns the last item in the array.
+
 class DynamicArray {
 
   constructor(defaultSize = 4) {
     this.data = new Array(defaultSize);
     this.capacity = defaultSize;
     this.length = 0;
-    // Your code here
-
-    // Read specs for details
 
   }
 
   read(index) {
+    // if the index is greater than the last index then return undefined
     if (index >= this.length) return undefined;
 
+    // return the array at the index we are looking for
     return this.data[index];
   }
 
@@ -59,6 +61,8 @@ class DynamicArray {
     return shiftedVal;
   }
 
+  // The unshift() method adds one or more elements to the beginning
+  // of an array and returns the new length of the array.
   unshift(val) {
 
     for (let i = this.length; i > 0; i--) {
@@ -68,9 +72,19 @@ class DynamicArray {
     this.length++;
   }
 
+  // The indexOf() method returns the first index at which a given
+  // element can be found in the array, or -1 if it is not present.
   indexOf(val) {
 
-    // Your code here
+    // iterate through the array
+    for (let i = 0; i < this.data.length; i++) {
+      // as soon as we find the value we are looking for, return the index
+      if (this.data[i] === val) {
+        return i;
+      }
+    }
+    // if we don't find the value, return -1
+    return -1;
   }
 
   resize() {
