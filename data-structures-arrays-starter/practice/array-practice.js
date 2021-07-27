@@ -1,17 +1,28 @@
 const findMinimum = arr => {
+  return (arr.length === 0 ? undefined : Math.min(...arr))
 
-  // Your code here
+  // if (arr.length === 0) return undefined
+  // return Math.min(...arr)
 
 };
 
 const runningSum = arr => {
 
-  // Your code here
+  let newArr = []
+  let total = 0;
+  arr.forEach((num) => {
+    total+= num;
+    newArr.push(total);
+  })
+  return newArr;
 };
+
+// [1,2,3,4] => [1,3,6,10]
 
 const evenNumOfChars = arr => {
 
-  // Your code here
+  let words = arr.slice(' ')
+  console.log(words)
 };
 
 const smallerThanCurr = arr => {
