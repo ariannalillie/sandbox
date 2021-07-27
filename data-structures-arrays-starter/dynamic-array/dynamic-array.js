@@ -23,6 +23,8 @@ class DynamicArray {
   // array and returns the new length of the array.
   push(val) {
 
+    if (this.length >= this.capacity) this.resize();
+
     // adds the new val to the end of the array
     this.data[this.length] = val;
     // increments the length
@@ -64,6 +66,8 @@ class DynamicArray {
   // The unshift() method adds one or more elements to the beginning
   // of an array and returns the new length of the array.
   unshift(val) {
+
+    if (this.length >= this.capacity) this.resize();
 
     for (let i = this.length; i > 0; i--) {
       this.data[i] = this.data[i - 1];
