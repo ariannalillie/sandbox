@@ -1,6 +1,6 @@
 class DynamicArray {
 
-  constructor(defaultSize=4) {
+  constructor(defaultSize = 4) {
     this.data = new Array(defaultSize);
     this.capacity = defaultSize;
     this.length = 0;
@@ -33,7 +33,7 @@ class DynamicArray {
   // This method changes the length of the array.
   pop() {
 
-    // stored popped value as a variable
+    // store popped value as a variable
     const poppedVal = this.data[this.length - 1]
     // set last value in this array to be null
     this.data[this.length - 1] = null;
@@ -43,27 +43,43 @@ class DynamicArray {
     return poppedVal;
   }
 
+
+  // The shift() method removes the first element from an array and returns that removed element.
+  // This method changes the length of the array.
   shift() {
 
-    // Your code here
+    // store shifted value as a variable
+    const shiftedVal = this.data[0];
+    for (let i = 0; i < this.length - 1; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+    this.length--;
+    this.data[this.length] = undefined;
+
+    return shiftedVal;
   }
 
   unshift(val) {
 
+    for (let i = this.length; i > 0; i--) {
+      this.data[i] = this.data[i - 1];
+    }
+    this.data[0] = val;
+    this.length++;
+  }
+
+  indexOf(val) {
+
     // Your code here
   }
 
-  indexOf (val) {
-
-    // Your code here
-  }
-
-  resize () {
+  resize() {
 
     // Your code here
   }
 
 }
+
 
 
 module.exports = DynamicArray;
