@@ -13,7 +13,7 @@ const runningSum = arr => {
   let newArr = []
   let total = 0;
   arr.forEach((num) => {
-    total+= num;
+    total += num;
     newArr.push(total);
   })
   return newArr;
@@ -36,7 +36,7 @@ const smallerThanCurr = arr => {
 
   let newArr = [];
 
-  for (let i = 0; i < arr.length -1; i++) {
+  for (let i = 0; i < arr.length - 1; i++) {
     let num1 = arr[i];
     for (let j = 1; j < arr.length; j++) {
       let count = 0
@@ -50,8 +50,16 @@ const smallerThanCurr = arr => {
 };
 
 const twoSum = (arr, target) => {
-
-  // Your code here
+  for (let i = 0; i < arr.length - 1; i++) {
+    let num1 = arr[i];
+    for (let j = i + 1; j < arr.length; j++) {
+      let num2 = arr[j];
+      if ((num1 + num2) === target) {
+        return true;
+      }
+    }
+  }
+  return false;
 };
 
 const secondLargest = arr => {
