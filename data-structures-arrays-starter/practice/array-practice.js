@@ -6,6 +6,8 @@ const findMinimum = arr => {
 
 };
 
+
+// [1,2,3,4] => [1,3,6,10]
 const runningSum = arr => {
 
   let newArr = []
@@ -17,18 +19,34 @@ const runningSum = arr => {
   return newArr;
 };
 
-// [1,2,3,4] => [1,3,6,10]
 
+// return the amount of strings in the array that have an even amount of characters
 const evenNumOfChars = arr => {
+  let count = 0;
 
-  let words = arr.slice(' ')
-  console.log(words)
+  arr.forEach(word => {
+    if (word.length % 2 === 0) count++;
+  });
+  return count;
 };
 
+
+// smallerThanCurr([8,1,2,2,3]) => [4,0,1,1,3]
 const smallerThanCurr = arr => {
 
-  // Your code here
+  let newArr = [];
 
+  for (let i = 0; i < arr.length -1; i++) {
+    let num1 = arr[i];
+    for (let j = 1; j < arr.length; j++) {
+      let count = 0
+      let num2 = arr[j];
+      if (num1 > num2)
+        count++;
+    }
+    newArr.push(count);
+  }
+  return newArr
 };
 
 const twoSum = (arr, target) => {
