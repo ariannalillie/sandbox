@@ -16,15 +16,31 @@ class DynamicArray {
     return this.data[index];
   }
 
+
+  // The push() method adds one or more elements to the end of an
+  // array and returns the new length of the array.
   push(val) {
 
-    
+    // adds the new val to the end of the array
+    this.data[this.length] = val;
+    // increments the length
+    this.length++;
+
   }
 
 
+  // The pop() method removes the last element from an array and returns that element.
+  // This method changes the length of the array.
   pop() {
 
-    // Your code here
+    // stored popped value as a variable
+    const poppedVal = this.data[this.length - 1]
+    // set last value in this array to be null
+    this.data[this.length - 1] = null;
+    // decrement the length
+    this.length--;
+    // return the value we popped off
+    return poppedVal;
   }
 
   shift() {
