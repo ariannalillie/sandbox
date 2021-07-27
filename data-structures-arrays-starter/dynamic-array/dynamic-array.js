@@ -89,7 +89,18 @@ class DynamicArray {
 
   resize() {
 
-    // Your code here
+    // double the capacity size
+    this.capacity *= 2;
+    // create a new array that is double the size of the previous
+    const newData = new Array(this.capacity);
+
+    // fill in the new array with the old data
+    for (let i = 0 ; i < this.length ; i++) {
+      newData[i] = this.data[i];
+    }
+
+    // set the old array equal to the new array
+    this.data = newData;
   }
 
 }
