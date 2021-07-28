@@ -63,10 +63,19 @@ const twoSum = (arr, target) => {
 };
 
 const secondLargest = arr => {
+  if (arr.length <= 1 ) return undefined;
+  let largest = arr[0];
+  let secondLargest;
 
-  // Your code here
-
-  return secondLargest;
+  arr.forEach((num) => {
+    if (largest <= num) {
+      secondLargest = largest;
+      largest = num;
+      // console.log('largest: ', largest)
+      // console.log('2largest: ', secondLargest)
+    }
+    return secondLargest;
+  })
 };
 
 const shuffle = (arr) => {
