@@ -41,6 +41,7 @@ class HashTable {
     const index = this.hashMod(key);
     let currentPair = this.data[index];
     let lastPair = null;
+    // while there are nodes in the linked list and we have not found the key
     while (currentPair && currentPair.key !== key) {
       lastPair = currentPair;
       currentPair = currentPair.next;
