@@ -10,8 +10,9 @@ class KeyValuePair {
 class HashTable { // get O(1), set O(1), delete O(1)
 
   constructor(numBuckets = 2) {
-    // Initialize your buckets here
-
+    this.count = 0;
+    this.capacity = numBuckets;
+    this.data = new Array(numBuckets).fill(null);
   }
 
   hash(key) {
@@ -30,15 +31,48 @@ class HashTable { // get O(1), set O(1), delete O(1)
   }
 
   read(key) {
+    // find the index of the bucket that the key will be stored in.
+    const index = this.hashMod(key);
 
-    // Fill this in
+    // the currentPair is the head node of the linked list in the bucket that our key is in.
+    let currentPair = this.data[index];
 
+    // while there are still nodes to index through we are going to keep searching until
+    // we find the key that matches the key we are looking for and if we do we are going to
+    // return the value.
+    while (currentPair) {
+      if (currentPair.key == key) {
+        return currentPair.value;
+      }
+      currentPair = currentPair.next;
+    }
+
+    // Otherwise, return undefined.
+    return undefined;
   }
 
 
   insert(key, value) {
 
-    // Fill this in
+        // Find the bucket index
+        const index = this.hashMod(key);
+
+        let currentPair = this.data[index];
+        let lastPair = null;
+
+        while (currentPair && currentPair.key !== key) {
+          lastPair = currentPair;
+          currentPair = currentPair.next;
+        }
+
+        if (currentPair) {
+          currentPair.value = value;
+        } else {
+          const newPair = new KeyValuePair(key, value);
+          newPair.next = this.data[index];
+          this.data[index] = newPair;
+          this.count++;
+        }
 
   }
 
