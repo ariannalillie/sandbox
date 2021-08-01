@@ -66,6 +66,7 @@ class DynamicArray {
   // The unshift() method adds one or more elements to the beginning
   // of an array and returns the new length of the array.
   unshift(val) {
+    
 
     if (this.length >= this.capacity) this.resize();
 
