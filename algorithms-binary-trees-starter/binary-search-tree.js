@@ -15,7 +15,7 @@ class BinarySearchTree {
 
   insert(val, currentNode=this.root) {
 
-    // Fill this in
+    if (!this.root) this.root = val;
 
   }
 
