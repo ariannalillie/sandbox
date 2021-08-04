@@ -13,15 +13,32 @@ class BinarySearchTree {
     this.root = null;
   }
 
+
+  // Insert function needs to be complete before specs pass
   insert(val, currentNode=this.root) {
 
+    // if there is no root, that the new value becomes the root
     if(!this.root) {
       this.root = new TreeNode(val);
       return;
     }
 
+    // if our new value is less than the root, we there check and see if the root currently has a left node,
+    // if not we insert it there, if so we call our insert function recursively on out root.left
+    if (val < currentNode.val) {
+      if (!currentNode.left) {
+        currentNode.left = new TreeNode(val);
+      } else {
+        this.insert(val, currentNode.left);
+      }
+    } else {
 
-
+      if (!currentNode.right) {
+        currentNode.right = new TreeNode(val);
+      } else {
+        this.insert(val, currentNode.right);
+      }
+    }
   }
 
   search(val) {
