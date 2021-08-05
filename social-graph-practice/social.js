@@ -8,8 +8,22 @@ class SocialNetwork {
   }
 
   addUser(name) {
+    // increments the userID each time a user is added
+    this.currentID++;
 
-    // Fill this out
+    // the newest id # is going to belong to the new user that we
+    // are trying to add
+    const newUserID = this.currentID;
+
+    // then if we look at the directions in a/A open
+    // each user needs an integer ID and a name
+    this.users[newUserID] = {id: newUserID, name: name};
+
+    // then we will initialize a new set to track who the user follows
+    this.follows[newUserID] = new Set()
+
+    // lastly, we will return the value of addUser which is pour newUserID
+    return newUserID;
 
   }
 
