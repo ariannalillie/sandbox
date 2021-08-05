@@ -28,14 +28,22 @@ class SocialNetwork {
   }
 
   getUser(userID) {
+    // getUser will not work if addUser is not set up correctly
 
-    // Fill this out
-
+    // if this user exists return the user
+    if (this.users[userID]) return this.users[userID];
+    // otherwise, return null
+    return null;
   }
 
   follow(userID1, userID2) {
+    // if either user 1 or 2 does not exist, return false
+    if(!this.users[userID1] || !this.users[userID2]) return false;
 
-    // Fill this out
+    // add user 2 to user 1's followers set, so that user 1 is now
+    // following user 2
+    this.follows[userID1].add(userID2)
+    return true;
 
   }
 
