@@ -49,7 +49,8 @@ class SocialNetwork {
 
   getFollows(userID) {
 
-    // Fill this out
+    // returns a list of that user's follows
+    return this.follows[userID]
 
   }
 
