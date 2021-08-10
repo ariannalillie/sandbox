@@ -73,8 +73,19 @@ class DoublyLinkedList {
         // Remove node at tail
         if (!this.head) return undefined;
 
-        
+        const oldTail = this.tail;
 
+        if (this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.tail = this.tail.prev;
+            this.tail.next = null;
+        }
+
+        this.length--;
+
+        return oldTail.value;
         // Write your hypothesis on the time complexity of this method here
     }
 
