@@ -76,7 +76,7 @@ class SinglyLinkedList {
             this.head = null;
             return oldTail;
         }
-            const curr = this.head;
+            let curr = this.head;
             let prev;
 
             while(curr.next) {
