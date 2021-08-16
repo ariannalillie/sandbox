@@ -3,27 +3,37 @@ const spies = require("chai-spies");
 chai.use(spies);
 const expect = chai.expect;
 
-const { Person } = require("../class-practice");
+const Person = require("../classes/person");
 
-describe("Person.prototype", () => {
+describe("Person class", () => {
   let person;
+  let consoleSpy
   beforeEach(() => {
     person = new Person("kristen", "chauncey", 38);
+    consoleSpy = chai.spy.on(console, 'log');
   });
-  describe("person class constructor", () => {
-    it("should have and set the firstName property", () => {
+
+  afterEach(() => {
+    chai.spy.restore(console);
+  });
+
+  describe("Person constructor", () => {
+    it("should set the firstName property", () => {
       expect(person).to.have.property("firstName");
       expect(person.firstName).to.eql("kristen");
     });
-    it("should have and set the lastName property", () => {
+
+    it("should set the lastName property", () => {
       expect(person).to.have.property("lastName");
       expect(person.lastName).to.eql("chauncey");
     });
-    it("should have and set the age property", () => {
+
+    it("should set the age property", () => {
       expect(person).to.have.property("age");
       expect(person.age).to.eql(38);
     });
   });
+
   describe("introduce instance method", () => {
     it("should call the introduce method", () => {
       let actual = person.introduce();
@@ -41,18 +51,20 @@ describe("Person.prototype", () => {
       expect(introSpy).to.have.been.called.once;
       expect(introSpy2).to.have.been.called.once;
     });
+
     it("should throw an error if input is not an array", () => {
       let input = "bad input";
-      expect(() => Person.introducePeople(input)).to.throw(
+      Person.introducePeople(input);
+      expect(consoleSpy).to.have.been.called.once.with(
         "introducePeople only takes an array as an argument."
       );
     });
+
     it('should throw an error if array does not contain instances of Person', () => {
       let input = ['dog', person]
-      expect(() =>
-        Person.introducePeople(input).to.throw(
-          "All items in array must be Person class instances."
-        )
+      Person.introducePeople(input);
+      expect(consoleSpy).to.have.been.called.once.with(
+        "All items in array must be Person class instances."
       );
     })
   });
