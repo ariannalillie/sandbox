@@ -4,7 +4,13 @@ class Dog {
 		this.name = name
 	}
 	static makeJet() {
-		return new this('Jet');
+		return new Dog('Jet');
+	}
+	changeName(newName) {
+		this.name = newName;
+	}
+	speak(word) {
+		return `${this.name} says ${word}`
 	}
 }
 

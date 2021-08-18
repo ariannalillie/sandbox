@@ -92,7 +92,7 @@ Implement the following in the __problems/03-make-dog.js__ file.
    `Dog` class with a `name` property of "Jet".
 4. Add two instance methods:
    a. `changeName(newName)` - set the `name` to the `newName`
-   b. `speak(word)` - returns `${name} says hello`
+   b. `speak(word)` - returns `${name} says ${word}`
 
 Test your implementation by running the test specs in the
 __test/03-make-dog-spec.js__ file. Run the specs with the following command:
@@ -107,7 +107,7 @@ use the examples below at the bottom of the file run the file in Node.js.
 Examples:
 
 ```js
-let dog1 = Dog.makeJet(); // returns an object 
+let dog1 = Dog.makeJet(); // returns an object
 
 console.log(dog1.name);                 // Jet
 console.log(dog1.speak("hello"));       // Jet says hello
@@ -426,7 +426,7 @@ console.log(party.throwParty()); // prints "gotta add people to the guest list"
 party.addToGuestList("James");
 console.log(party.throwParty()); // prints "Welcome to the party James"
 
-party.addToGuestList("Alvin"); 
+party.addToGuestList("Alvin");
 console.log(party.throwParty()); // prints "Welcome to the party James and Alvin"
 ```
 
