@@ -160,7 +160,7 @@ Implement the following in the __problems/05-bind-to-an-arg.js__ file.
 
 Write a function named `bindToAnArg(func, arg)` that will accept a
 function `func` and any argument `arg`. The `bindToAnArg` function should return
-the passed-in function `func` modified to always be invoked with the passed-in
+the passed-in function `func` bound to always be invoked with the passed-in
 argument `arg`.
 
 Test your implementation by running the test specs in the
