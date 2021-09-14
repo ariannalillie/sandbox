@@ -1,3 +1,4 @@
+// employee class
 class Employee {
     constructor(name, title, salary, boss) {
         this.name = name;
