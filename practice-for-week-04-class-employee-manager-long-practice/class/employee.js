@@ -6,6 +6,7 @@ class Employee {
         this.salary = salary;
         this.boss = boss;
     }
+    // bonus method
     bonus(multiplier) {
        bonus = this.salary * multiplier;
        return bonus;
