@@ -17,3 +17,7 @@ describe('reverseString()', function () {
         expect(() => reverseString([1, 2, 3])).to.throw(TypeError);
     })
 });
+
+// Beware of some common mistakes when using the throw assertion.
+// One common mistake is to accidentally invoke the function yourself
+// instead of letting the throw assertion invoke the function for you.
