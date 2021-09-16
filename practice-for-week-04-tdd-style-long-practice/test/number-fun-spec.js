@@ -21,4 +21,8 @@ describe('reciprocal(num)', () => {
 
         expect(actual1).to.eql(0.25);
     });
+    it('Should only accept integers between 1 and 1,000,000', () => {
+        expect(() => reciprocal(-2)).to.throw(TypeError)
+        expect(() => reciprocal(1000200)).to.throw(TypeError)
+    })
 });

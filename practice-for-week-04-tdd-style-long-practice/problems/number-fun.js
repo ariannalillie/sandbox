@@ -3,6 +3,9 @@ function returnsThree() {
 }
 
 function reciprocal(n) {
+  if(n < 1 || n > 1000000) {
+    throw new TypeError('input is out of range')
+  }
   return (1/n)
 }
 
