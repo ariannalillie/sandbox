@@ -3,7 +3,7 @@ function returnsThree() {
 }
 
 function reciprocal(n) {
-  // Your code here
+  return (1/n)
 }
 
 module.exports = {
