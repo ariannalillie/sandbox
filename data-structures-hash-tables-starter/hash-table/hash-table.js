@@ -78,7 +78,8 @@ class HashTable { // get O(1), set O(1), delete O(1)
 
 
   resize() {
-
+    // must store the old data because we need
+    // to re-hash to data when putting it back in now that the hash table sixze has changed
     // Fill this in
 
   }
