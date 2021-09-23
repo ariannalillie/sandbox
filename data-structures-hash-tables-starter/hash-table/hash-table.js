@@ -31,6 +31,7 @@ class HashTable { // get O(1), set O(1), delete O(1)
   }
 
   read(key) {
+    // Uses a linkedlist in each bucket to handle collisions
     // find the index of the bucket that the key will be stored in.
     const index = this.hashMod(key);
 
