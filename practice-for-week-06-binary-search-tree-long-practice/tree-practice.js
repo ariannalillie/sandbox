@@ -4,6 +4,11 @@ const { BinarySearchTree, TreeNode } = require('./binary-search-tree.js');
 
 // Practice problems on binary trees
 
+// A Binary search tree is a tree that follows some order to arrange the elements,
+// whereas the binary tree does not follow any order. In a Binary search tree,
+// the value of the left node must be smaller than the parent node, and the value
+// of the right node must be greater than the parent node.
+
 function findMinBST (rootNode) {
   if (!rootNode) return;
   let current = rootNode;
@@ -22,8 +27,20 @@ function findMaxBST (rootNode) {
   return current.val
 }
 
+
+// In Binary Search Tree, we can find maximum by traversing right pointers
+// until we reach the rightmost node. But in Binary Tree, we must visit
+// every node to figure out maximum.
 function findMinBT (rootNode) {
-  // Your code here
+  if (rootNode == null) return;
+
+  var min = rootNode.val;
+  var left = findMinBT(rootNode.left);
+  var right = findMinBT(rootNode.right);
+
+  if (left < min) min = left;
+  if (right < min) min = right;
+  return min;
 }
 
 function findMaxBT (rootNode) {
