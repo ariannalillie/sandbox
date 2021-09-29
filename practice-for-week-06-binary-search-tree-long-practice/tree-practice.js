@@ -60,8 +60,17 @@ function findMaxBT (rootNode) {
   return max;
 }
 
+// height of a binary tree is equal to the largest number of the edges from
+// the root to the most distant leaf node.
 function getHeight (rootNode) {
-  // Your code here
+  // if there is no root, return 0 because the tree has a height of 0
+  if (!rootNode) return -1;
+
+  // if the root doesn't have a left node or a right node, there are no edges in this
+  // tree, therefore the height is also 0
+  if (!rootNode.left && !rootNode.right) return 0;
+
+  return 1 + Math.max(getHeight(rootNode.left), getHeight(rootNode.right));
 }
 
 function countNodes (rootNode) {
