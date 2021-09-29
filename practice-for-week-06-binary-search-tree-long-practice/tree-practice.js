@@ -94,21 +94,36 @@ function balancedTree(rootNode) {
   }
 }
 
-// Use a depth first traversal to traverse down from the root to the farthest child. 
+// Use a depth first traversal to traverse down from the root to the farthest child.
 function getParentNode(rootNode, target) {
-  const stack = [this.root];
+  // if (rootNode.val === target) return null;
+  // const stack = [rootNode];
+  // let prev = null;
 
-  while (stack.length > 0) {
-    let currentNode = stack.pop();
+  // while (stack.length > 0) {
+  //   let currentNode = stack.pop();
+  //   if (currentNode.val === target) {
+  //     return prev;
+  //   }
+  //   prev = currentNode
 
-    console.log(currentNode.val);
-    if (currentNode.left) stack.push(currentNode.left);
-    if (currentNode.right) stack.push(currentNode.right);
-  }
+  //   console.log(currentNode.val);
+  //   if (currentNode.left) stack.push(currentNode.left);
+  //   if (currentNode.right) stack.push(currentNode.right);
+  // }
 }
 
+function inOrderTraversal(currentNode, arr = []) {
+  if (!currentNode) return [];
+  inOrderTraversal(currentNode.left, arr);
+  arr.push(currentNode.val);
+  inOrderTraversal(currentNode.right, arr);
+  return arr;
+}
 function inOrderPredecessor(rootNode, target) {
-  // Your code here
+  let trav = inOrderTraversal(rootNode);
+  if ((trav.indexOf(target) - 1) === 1) return null;
+  return trav[trav.indexOf(target) - 1] || null;
 }
 
 
