@@ -94,8 +94,17 @@ function balancedTree(rootNode) {
   }
 }
 
+// Use a depth first traversal to traverse down from the root to the farthest child. 
 function getParentNode(rootNode, target) {
-  // Your code here
+  const stack = [this.root];
+
+  while (stack.length > 0) {
+    let currentNode = stack.pop();
+
+    console.log(currentNode.val);
+    if (currentNode.left) stack.push(currentNode.left);
+    if (currentNode.right) stack.push(currentNode.right);
+  }
 }
 
 function inOrderPredecessor(rootNode, target) {
