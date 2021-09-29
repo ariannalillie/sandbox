@@ -9,7 +9,7 @@ const { BinarySearchTree, TreeNode } = require('./binary-search-tree.js');
 // the value of the left node must be smaller than the parent node, and the value
 // of the right node must be greater than the parent node.
 
-function findMinBST (rootNode) {
+function findMinBST(rootNode) {
   if (!rootNode) return;
   let current = rootNode;
   while (current.left) {
@@ -18,7 +18,7 @@ function findMinBST (rootNode) {
   return current.val
 }
 
-function findMaxBST (rootNode) {
+function findMaxBST(rootNode) {
   if (!rootNode) return;
   let current = rootNode;
   while (current.right) {
@@ -36,7 +36,7 @@ function findMaxBST (rootNode) {
 // In the recursive function calls, every node of the tree is processed once
 // and hence the complexity due to the function is O(N) if there are total N
 // nodes in the tree. Therefore, the time complexity is O(N).
-function findMinBT (rootNode) {
+function findMinBT(rootNode) {
   if (rootNode == null) return;
 
   let min = rootNode.val;
@@ -48,7 +48,7 @@ function findMinBT (rootNode) {
   return min;
 }
 
-function findMaxBT (rootNode) {
+function findMaxBT(rootNode) {
   if (rootNode == null) return;
 
   let max = rootNode.val;
@@ -62,7 +62,7 @@ function findMaxBT (rootNode) {
 
 // height of a binary tree is equal to the largest number of the edges from
 // the root to the most distant leaf node.
-function getHeight (rootNode) {
+function getHeight(rootNode) {
   // if there is no root, return 0 because the tree has a height of 0
   if (!rootNode) return -1;
 
@@ -73,21 +73,32 @@ function getHeight (rootNode) {
   return 1 + Math.max(getHeight(rootNode.left), getHeight(rootNode.right));
 }
 
-function countNodes (rootNode) {
+function countNodes(rootNode) {
   if (!rootNode) return 0;
 
   return 1 + countNodes(rootNode.left) + countNodes(rootNode.right);
 }
 
-function balancedTree (rootNode) {
+// a binary tree in which the left and right subtrees of every node differ
+// in height by no more than 1.
+
+// The balanced subtree definition hints at the fact that we should treat each subtree
+// as a subproblem. The question is: in which order should we solve the subproblems?
+function balancedTree(rootNode) {
+  if (!rootNode) return true
+  if (Math.abs(getHeight(rootNode.left) - getHeight(rootNode.right)) > 1) {
+    return false
+  }
+  else {
+    return balancedTree(rootNode.left) && balancedTree(rootNode.right)
+  }
+}
+
+function getParentNode(rootNode, target) {
   // Your code here
 }
 
-function getParentNode (rootNode, target) {
-  // Your code here
-}
-
-function inOrderPredecessor (rootNode, target) {
+function inOrderPredecessor(rootNode, target) {
   // Your code here
 }
 
@@ -114,14 +125,14 @@ function deleteNodeBST(rootNode, target) {
 }
 
 module.exports = {
-    findMinBST,
-    findMaxBST,
-    findMinBT,
-    findMaxBT,
-    getHeight,
-    countNodes,
-    balancedTree,
-    getParentNode,
-    inOrderPredecessor,
-    deleteNodeBST
+  findMinBST,
+  findMaxBST,
+  findMinBT,
+  findMaxBT,
+  getHeight,
+  countNodes,
+  balancedTree,
+  getParentNode,
+  inOrderPredecessor,
+  deleteNodeBST
 }
