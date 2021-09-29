@@ -31,12 +31,17 @@ function findMaxBST (rootNode) {
 // In Binary Search Tree, we can find maximum by traversing right pointers
 // until we reach the rightmost node. But in Binary Tree, we must visit
 // every node to figure out maximum.
+
+// Time Complexity: O(N)
+// In the recursive function calls, every node of the tree is processed once
+// and hence the complexity due to the function is O(N) if there are total N
+// nodes in the tree. Therefore, the time complexity is O(N).
 function findMinBT (rootNode) {
   if (rootNode == null) return;
 
-  var min = rootNode.val;
-  var left = findMinBT(rootNode.left);
-  var right = findMinBT(rootNode.right);
+  let min = rootNode.val;
+  let left = findMinBT(rootNode.left);
+  let right = findMinBT(rootNode.right);
 
   if (left < min) min = left;
   if (right < min) min = right;
@@ -44,7 +49,15 @@ function findMinBT (rootNode) {
 }
 
 function findMaxBT (rootNode) {
-  // Your code here
+  if (rootNode == null) return;
+
+  let max = rootNode.val;
+  let left = findMaxBT(rootNode.left);
+  let right = findMaxBT(rootNode.right);
+
+  if (left > max) max = left;
+  if (right > max) max = right;
+  return max;
 }
 
 function getHeight (rootNode) {
