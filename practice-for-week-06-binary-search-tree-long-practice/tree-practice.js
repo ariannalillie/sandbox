@@ -114,6 +114,7 @@ function getParentNode(rootNode, target) {
 }
 
 function inOrderTraversal(currentNode, arr = []) {
+  // perform an inorder traversal pushing all the nodes into an array
   if (!currentNode) return [];
   inOrderTraversal(currentNode.left, arr);
   arr.push(currentNode.val);
